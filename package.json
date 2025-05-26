@@ -1,5 +1,6 @@
 {
   "name": "minesuiper",
+  "homepage": "https://minesuiper.github.io/minesuiper",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
