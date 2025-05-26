@@ -10,7 +10,6 @@ const PageContainer = ({ children }) => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 20px;
           background-color: #f0f0f0;
         }
       `}</style>

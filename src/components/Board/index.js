@@ -5,6 +5,7 @@ import { initializeBoard, placeMines } from "../../utils/board";
 
 const Board = ({ difficulty, onGameOver, gameStatus }) => {
   const [board, setBoard] = React.useState(null);
+  const [cols, setCols] = React.useState(10);
 
   useEffect(() => {
     const { rows, cols, mines } = BOARD_SIZE[difficulty];
@@ -151,10 +152,9 @@ const Board = ({ difficulty, onGameOver, gameStatus }) => {
       <style jsx>{`
         .board {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+          grid-template-columns: repeat(${cols}, 1fr);
           gap: 5px;
-          width: 100%;
-          max-width: 545px;
+          max-width: 100%;
           margin: 0 auto;
         }
       `}</style>

@@ -55,8 +55,8 @@ const BoardCell = ({
 
   return (
     <div
-      className={`board-cell ${isRevealed ? "revealed" : ""} ${
-        hasMine ? "mine" : ""
+      className={`board-cell${isRevealed ? " revealed" : ""}${
+        hasMine ? " mine" : ""
       } mines-around-${minesAround}`}
       onClick={handleClick}
       onMouseDown={handleMouseDown}
@@ -69,8 +69,8 @@ const BoardCell = ({
       {getCellContent()}
       <style jsx>{`
         .board-cell {
-          width: 50px;
-          height: 50px;
+          width: 25px;
+          height: 25px;
           display: flex;
           align-items: center;
           justify-content: center;
