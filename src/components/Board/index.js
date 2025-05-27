@@ -33,6 +33,11 @@ const Board = ({ difficulty, onGameOver, gameStatus }) => {
       return;
     }
 
+    if (gameStatus !== "PLAYING") {
+      console.log("Game is not in progress, cannot click cell");
+      return;
+    }
+
     // Implement cell click logic here, e.g., reveal cell, check for mine, etc.
     if (cell.isRevealed) {
       console.log("Cell already revealed");

@@ -69,8 +69,8 @@ const BoardCell = ({
       {getCellContent()}
       <style jsx>{`
         .board-cell {
-          width: 25px;
-          height: 25px;
+          width: 50px;
+          height: 50px;
           display: flex;
           align-items: center;
           justify-content: center;
