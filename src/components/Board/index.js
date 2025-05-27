@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import BoardCell from "../BoardCell";
-import { BOARD_SIZE } from "../../constants";
+import { BOARD_SIZE, GAME_STATUS } from "../../constants";
 import { initializeBoard, placeMines } from "../../utils/board";
 
 const Board = ({ difficulty, onGameOver, gameStatus }) => {
@@ -33,7 +33,7 @@ const Board = ({ difficulty, onGameOver, gameStatus }) => {
       return;
     }
 
-    if (gameStatus !== "PLAYING") {
+    if (gameStatus !== GAME_STATUS.PLAYING) {
       console.log("Game is not in progress, cannot click cell");
       return;
     }
