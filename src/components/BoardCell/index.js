@@ -16,10 +16,15 @@ const BoardCell = ({
 
     const timer = setTimeout(() => {
       setIsLongPress(true);
+
+      if ("vibrate" in navigator) {
+        navigator.vibrate(200); // Vibra durante 200ms
+      }
+
       if (onMineMarked) {
         onMineMarked();
       }
-    }, 250); // Trigger long press after 500ms
+    }, 500); // Trigger long press after 500ms
 
     setPressTimer(timer);
   };
@@ -29,8 +34,44 @@ const BoardCell = ({
     setPressTimer(null);
   };
 
-  const handleClick = () => {
-    if (!isRevealed && !isLongPress && onClick) {
+  const handleTouchStart = (e) => {
+    e.preventDefault(); // Prevent the default touch behavior
+    setIsLongPress(false);
+
+    const timer = setTimeout(() => {
+      setIsLongPress(true);
+      if (onMineMarked) {
+        onMineMarked();
+      }
+    }, 500); // Trigger long press after 500ms
+
+    setPressTimer(timer);
+  };
+
+  const handleTouchEnd = (e) => {
+    e.preventDefault(); // Prevent the default touch behavior
+    clearTimeout(pressTimer);
+    setPressTimer(null);
+
+    // If it was a long press, prevent the click
+    if (isLongPress) {
+      return;
+    }
+
+    // Otherwise, treat it as a normal touch
+    if (!isRevealed && onClick) {
+      onClick();
+    }
+  };
+
+  const handleClick = (e) => {
+    // Prevent the click if it was a long press
+    if (isLongPress) {
+      e.preventDefault();
+      return;
+    }
+
+    if (!isRevealed && onClick) {
       onClick();
     }
   };
@@ -61,16 +102,16 @@ const BoardCell = ({
       onClick={handleClick}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onTouchStart={handleMouseDown}
-      onTouchEnd={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onTouchCancel={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
       {getCellContent()}
       <style jsx>{`
         .board-cell {
-          width: 50px;
-          height: 50px;
+          width: 100%;
+          height: auto;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -79,6 +120,15 @@ const BoardCell = ({
           font-size: 24px;
           font-weight: bold;
           margin-top: 3px;
+          aspect-ratio: 1/1;
+          user-select: none;
+          cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+          .board-cell {
+            font-size: 16px;
+          }
         }
 
         /* text-color by cell content */
