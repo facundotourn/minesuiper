@@ -161,7 +161,28 @@ const Board = ({ difficulty, onGameOver, gameStatus }) => {
           gap: 5px;
           max-width: 100%;
           margin: 0 auto;
-          width: 50vh;
+          width: 30vw;
+        }
+
+        @media (max-width: 1200px) {
+          .board {
+            width: 40vw;
+            font-size: 16px;
+          }
+        }
+
+        @media (max-width: 950px) {
+          .board {
+            width: 50vw;
+            font-size: 14px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .board {
+            width: 90vw;
+            font-size: 12px;
+          }
         }
       `}</style>
     </div>

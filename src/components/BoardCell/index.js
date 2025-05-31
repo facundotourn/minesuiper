@@ -24,7 +24,7 @@ const BoardCell = ({
       if (onMineMarked) {
         onMineMarked();
       }
-    }, 500); // Trigger long press after 500ms
+    }, 250); // Trigger long press after 250ms
 
     setPressTimer(timer);
   };
@@ -43,7 +43,7 @@ const BoardCell = ({
       if (onMineMarked) {
         onMineMarked();
       }
-    }, 500); // Trigger long press after 500ms
+    }, 250); // Trigger long press after 250ms
 
     setPressTimer(timer);
   };
@@ -169,7 +169,7 @@ const BoardCell = ({
         }
         .revealed {
           cursor: default;
-          background-color: #d0d0d0;
+          background-color: #cdcdcd;
         }
       `}</style>
     </div>

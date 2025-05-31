@@ -7,7 +7,7 @@ const GamePage = ({ difficulty = GAME_DIFFICULTY.EASY }) => {
   const [gameStatus, setGameStatus] = useState(GAME_STATUS.PLAYING);
 
   const handleGameOver = (minesLeft) => {
-    console.log(`Game Over! Mines left: ${minesLeft}`);
+    console.log(`Fin del juego! Minas restantes: ${minesLeft}`);
 
     if (minesLeft === 0) {
       setGameStatus(GAME_STATUS.WON);
@@ -28,12 +28,12 @@ const GamePage = ({ difficulty = GAME_DIFFICULTY.EASY }) => {
         />
         {gameStatus === GAME_STATUS.WON && (
           <div className="game-status">
-            <h2>Congratulations! You won!</h2>
+            <h2>🎉 Fin de la partida! Ganaste! 🎉</h2>
           </div>
         )}
         {gameStatus === GAME_STATUS.LOST && (
           <div className="game-status">
-            <h2>Game Over! You lost!</h2>
+            <h2>Fin de la partida! Perdiste!</h2>
           </div>
         )}
         <style jsx>{`
@@ -41,15 +41,25 @@ const GamePage = ({ difficulty = GAME_DIFFICULTY.EASY }) => {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 20px 0px;
             background-color: #f0f0f0;
             width: 100%;
           }
           h1 {
             color: #333;
+            margin-bottom: 10px;
           }
           p {
             color: #666;
+            margin-top: 0;
+            margin-bottom: 30px;
+          }
+
+          h2 {
+            color: #333;
+            margin: 32px 0;
+            font-size: 14pt;
+            font-weight: 500;
           }
         `}</style>
       </div>
