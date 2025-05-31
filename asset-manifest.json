@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/minesuiper/static/css/main.e6c13ad2.css",
-    "main.js": "/minesuiper/static/js/main.40155796.js",
+    "main.css": "/minesuiper/static/css/main.be95bd56.css",
+    "main.js": "/minesuiper/static/js/main.bd9aebdb.js",
     "index.html": "/minesuiper/index.html",
-    "main.e6c13ad2.css.map": "/minesuiper/static/css/main.e6c13ad2.css.map",
-    "main.40155796.js.map": "/minesuiper/static/js/main.40155796.js.map"
+    "main.be95bd56.css.map": "/minesuiper/static/css/main.be95bd56.css.map",
+    "main.bd9aebdb.js.map": "/minesuiper/static/js/main.bd9aebdb.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.40155796.js"
+    "static/css/main.be95bd56.css",
+    "static/js/main.bd9aebdb.js"
   ]
 }
